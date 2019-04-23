@@ -25,38 +25,40 @@ We'll create a very simple application that displays a list of dogs. In this exe
 
 ## Exercise
 
-Finish this application. The main page should:
-- Display all the dogs
-- Use well styled, responsive layout (no ugly apps)
-- All visitors to like any of the dogs listed
+Finish this application. The main features:
 
-Implement the like button using the following guidelines.
+- Displays all the dogs
+- Visitors can like any of the dogs listed
+- Visitors have a favorites list
+- Notifications
 
-* Each dog has a like button
-* The like button should also have a counter to display the the number of likes
-* Create a new service `LikeService` which will keep track of the counter data
-* STRETCH GOAL (optional): Try to use `localStorage` to track and persist the likes for each dog!
+#### Requirements
+
+* displays all dogs with images and names
+* Each dog has a like button and favorite button
+* Use well styled, responsive layout (no ugly apps)
+* like buttons have a counter to display the the number of likes
+* notifications when a dog on visitors list receives a like
 
 > IMPORTANT: `tsconfig.json` is has been configured with 3 properties to handle JSON files: `resolveJsonModule, esModuleInterop, and allowSyntheticDefaultImports`. 
 
 With this configured, JSON files can be imported as follows: `import jsonName from path/to/json;`.
 
 **`DogsService`**
-- Imports dogdata.json
+- manages data sources for dogs
 - has a private property `dogData` to `DogService` 
 - has a `get()` method to retrieve dogs by their id
 - has a `all()` method to retrieve all dogs
 
 **`DogListComponent`**
-- Import `DogService`
-- Inject `DogService` into the constructor as `dogService`
-- Add a method `getAll()` which returns all the dogs.
-- Add property `dogs` with value `this.getAll()`
+- uses `DogService`
+- has a method `getAll()` which returns all the dogs.
+- has property `dogs` with value `this.getAll()`
 
-**`dog-list.component.html`**
-- Create a div with `ngFor` directive to loop through dogs.
-- Display the dog name and image.
-
-**`dog.ts`**
+**`Dog` (class)**
 - has 3 properties: id, name and thumbnail, all are strings
 
+#### Stretch Goals
+
+- add a feature for users to have a Favorites list
+- add a feature to notify users if a dog on their list has been liked.
