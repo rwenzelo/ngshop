@@ -62,5 +62,3 @@ With this configured, JSON files can be imported as follows: `import jsonName fr
 
 - add a feature for users to have a Favorites list
 - add a feature to notify users if a dog on their list has been liked.
-- if a user has a dog on favorites list and they click the heart again, it should remove the dog from favorites
-- no duplicate favorites
