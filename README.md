@@ -59,4 +59,5 @@ With this configured, JSON files can be imported as follows: `import jsonName fr
 #### Stretch Goals
 
 - no duplicate favorites or likes
-- create a Mondrian grid
+- dynamic scrolling; more images loaded as you scroll down the page
+- use a library such as Masonry.js make a neater grid layout
