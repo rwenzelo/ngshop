@@ -7,7 +7,6 @@ import DOGS from '../dogdata.json';
   providedIn: 'root'
 })
 export class DogsService {
-  // If using the Dog import, set to: private dogData: Dog[] = DOGS;
   private dogData: Dog[] = DOGS;
 
   constructor() {
@@ -17,34 +16,21 @@ export class DogsService {
     }
   }
 
-  /**
-   * Dog List
-   */
   all(): Observable<Dog[]> {
     return of(this.dogData);
   }
 
-  /**
-   * Dog Detail
-   * @param dogId
-   * @returns a dog object from the JSON file (no likes, no favorites)
-   */
-  get(dogId) {
+  get(dogId: string): Dog[] {
     return this.dogData.filter(dog => dog.id === dogId);
   }
 
-  /**
-   * Dog Detail
-   * @param dogId
-   * @returns a dog object from localStorage with ONLY likes
-   */
-  getLikes(dogId) {
+  getLikes(dogId): number {
     const likes = JSON.parse(localStorage.getItem('likes'));
     // tslint:disable-next-line:radix
     return parseInt(likes[dogId]);
   }
 
-  update(dog) {
+  update(dog): void {
     const likes = JSON.parse(localStorage.getItem('likes')) || localStorage.setItem('likes', JSON.stringify({}));
     likes[dog.id] = dog.likes;
     localStorage.setItem('likes', JSON.stringify(likes));
