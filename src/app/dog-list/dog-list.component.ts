@@ -4,13 +4,14 @@ import { Dog } from '../models/dog';
 import { FavoritesService } from '../services/favorites.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'dog-list',
   templateUrl: './dog-list.component.html',
   styleUrls: ['./dog-list.component.css']
 })
 export class DogListComponent implements OnInit {
-  dogs: Dog[];
-  favorites: Dog[];
+  dogs: Dog[] = [];
+  favorites: Dog[] = [];
   viewFavorites = false;
 
   constructor(private dogService: DogsService,
@@ -21,16 +22,10 @@ export class DogListComponent implements OnInit {
     this.favoritesService.all().subscribe(favorites => this.favorites = favorites);
   }
 
-  /**
-   * Load dogs
-   */
   loadDogs() {
     this.dogService.all().subscribe(data => this.dogs = data);
   }
 
-  /**
-   * Load favorite dogs
-   */
   loadFavorites() {
     this.dogs = this.favorites;
   }
